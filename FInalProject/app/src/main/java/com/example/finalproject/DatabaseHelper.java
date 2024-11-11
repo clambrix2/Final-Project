@@ -112,6 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = this.getWritableDatabase();
             db.execSQL("INSERT INTO " + users_table_name + "(Username, Password) VALUES ('Admin', 'thisisanAdmin');");
             db.execSQL("INSERT INTO " + users_table_name + "(Username, Password) VALUES ('User1', 'password');");
+            db.execSQL("INSERT INTO " + users_table_name + "(Username, Password) VALUES ('Gitgudgamer', '01702406395')");
             db.close();
         }
     }
@@ -141,7 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(countfromrecords(weapons_comments_table_name) == 0)
         {
             SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL("INSERT INTO " + weapons_comments_table_name + "(Body, Likes, Dislikes, Itemdid, Usersid) VALUES ('This is the best starter weapon in the game.', 10, 0, 1, 2);");
+            db.execSQL("INSERT INTO " + weapons_comments_table_name + "(Body, Likes, Dislikes, Weaponsid, Usersid) VALUES ('This is the best starter weapon in the game.', 3, 3, 1, 2);");
             db.close();
         }
     }
@@ -150,12 +151,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(countfromrecords(enemies_table_name) == 0)
         {
             SQLiteDatabase db = this.getWritableDatabase();
-            //db.execSQL("INSERT INTO " + enemies_table_name = "(Title, Body, Date, Location VALUES ('Zombie', 'It is an basic enemy in the game. Stats: 15 Hp, 1 Speed, 2 Damage, Solar Weakness', '11/11/2024', 'Deep Forest');");
+            db.execSQL("INSERT INTO " + enemies_table_name + "(Title, Body, Date, Location) VALUES ('Zombie', 'It is a basic enemy. Stats: 15 hp, 1 Speed, 2 Damage, Solar Weakness.', '11/11/2024', 'Deep Forest');");
+            db.close();
+        }
+        if(countfromrecords(enemies_comments_table_name) == 0)
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL("INSERT INTO " + enemies_comments_table_name + "(Body, Likes, Dislikes, Enemiesid, Usersid) VALUES ('This Enemy is so hard.', 3, 6, 1, 2);");
+            db.close();
         }
     }
     public void initposts()
     {
-
+        if(countfromrecords(post_table_name) == 0)
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL("INSERT INTO " + post_table_name + "(Title, Likes, Dislike, Body, Date, Usersid) VALUES ('I Think this is the best Weapon', 2,30,'I think the Spear is the best weapon type in the game, it does a lot of damage, has good range, and it is easy to use')");
+            db.close();
+        }
     }
     public void initbookmark()
     {

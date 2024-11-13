@@ -5,6 +5,11 @@ public class User {
     private String Username;
     private String Password;
 
+    public User()
+    {
+
+    }
+
     public User(int i, String u, String p)
     {
         userid = i;

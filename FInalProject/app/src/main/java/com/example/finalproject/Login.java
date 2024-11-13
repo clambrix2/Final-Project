@@ -41,7 +41,6 @@ public class Login extends AppCompatActivity {
                 if(user != null)
                 {
                     Intent passover = new Intent(Login.this, User_Page.class);
-                    passover.putExtra("Userinfo", user.getUserid());
                     startActivity(passover);
                 }
 

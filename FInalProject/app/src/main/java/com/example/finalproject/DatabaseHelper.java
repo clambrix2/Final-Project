@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String enemies_comments_table_name = "Ecomments";
     public DatabaseHelper(Context c)
     {
-        super(c, database_name, null, 12);
+        super(c, database_name, null, 16);
     }
 
     @Override
@@ -181,8 +181,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         if(countfromrecords(bookmark_table_name) == 0)
         {
+            int temp = gettheidthatwontwork(2);
             SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL("INSERT INTO " + bookmark_table_name + "(Title, Body, Date, postid, posttype, Usersid) VALUES ('I Think this is the best Weapon','I think the Spear is the best weapon type in the game, it does a lot of damage, has good range, and it is easy to use', '11/13/2014', 1, 'Posts', 2);");
+            db.execSQL("INSERT INTO " + bookmark_table_name + "(Title, Body, Date, postid, posttype, Usersid) VALUES ('I Think this is the best Weapon','I think the Spear is the best weapon type in the game, it does a lot of damage, has good range, and it is easy to use', '11/13/2014', 1, 'Posts', '" + temp + "');");
             db.close();
         }
     }
@@ -222,6 +223,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    }
    //end
     //setting info on pages
+    public int gettheidthatwontwork(int i)
+    {
+        //this is where because the same issue as last time, it wont pick up the 2 as usersid 2 but if i do this it will pick up 2 as usersid 2. it's really dumb and stuipd.
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = "SELECT Usersid FROM " + users_table_name + " WHERE Usersid = '" + i + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        cursor.moveToFirst();
+        db.close();
+        return cursor.getInt(0);
+    }
+
     public String getusername(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -237,23 +249,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
    public Bookmark getbookmorakinfo(int i)
    {
-       if(countfromrecords(bookmark_table_name) != 0 && i > 0) {
-
-
+       if(countfromrecords(bookmark_table_name) != 0) {
+           Log.d("Trying to get bookmark", "");
+           Log.d("Id i am using", LoginUser.getloginuser().getUserid() + "");
            SQLiteDatabase db = this.getReadableDatabase();
            String quary = " SELECT * FROM " + bookmark_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
            Cursor cursor = db.rawQuery(quary, null);
 
-           if (cursor.moveToFirst()) {
+           if (i <= cursor.getCount()) {
                cursor.move(i);
-               Bookmark bm = new Bookmark(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4));
+               Bookmark bm = new Bookmark(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
                db.close();
                return bm;
            }
+           Log.d("Passed the bookmark", "");
            db.close();
        }
+       Log.d("Fail to reach bookmark", "");
        return null;
    }
+
+
+   //testing stuff
+    public void testing()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        String quary = "SELECT * FROM " + bookmark_table_name;
+        Cursor cursor = db.rawQuery(quary, null);
+        cursor.moveToFirst();
+        for(int i = 0; i < bookmark_table_name.length(); i++)
+        {
+            if(i == 0) {
+
+
+                Log.d("Title", cursor.getString(1));
+                Log.d("Body", cursor.getString(2));
+                Log.d("Date", cursor.getString(3));
+                Log.d("Id", cursor.getInt(4) + "");
+                Log.d("Type", cursor.getString(5));
+                Log.d("Usersid", cursor.getInt(6) + "");
+                cursor.moveToNext();
+            }
+        }
+        db.close();
+    }
 
 
 

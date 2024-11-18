@@ -57,5 +57,11 @@ public class User_Page extends AppCompatActivity {
                 startActivity(info);
             }
         });
+        btn_j_users_his.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent info = new Intent(User_Page.this, History.class);
+            }
+        });
     }
 }

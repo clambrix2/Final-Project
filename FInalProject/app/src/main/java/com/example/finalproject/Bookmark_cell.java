@@ -55,11 +55,15 @@ public class Bookmark_cell extends BaseAdapter {
         TextView Title = view.findViewById(R.id.tv_j_bookcell_title);
         TextView Body = view.findViewById(R.id.tv_v_bookcell_body);
         TextView Date = view.findViewById(R.id.tv_j_bookcell_date);
-        Title.setText(dbhelper.getbookmorakinfo(i + 1).getTitle());
-        Body.setText(dbhelper.getbookmorakinfo(i + 1).getBody());
-        Date.setText(dbhelper.getbookmorakinfo(i + 1).getDate());
-        Log.d("counter", i + "");
-
+        Bookmark bm = dbhelper.getbookmorakinfo(i + 1);
+        if(bm != null) {
+            Log.d("Bookmark", bm.getTitle());
+            Title.setText(bm.getTitle());
+            Log.d(Title.getText().toString(), "text");
+            Body.setText(bm.getBody());
+            Date.setText(bm.getDate());
+            Log.d("counter", i + "");
+        }
 
 
 

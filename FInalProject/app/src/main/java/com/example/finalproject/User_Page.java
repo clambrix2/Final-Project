@@ -61,6 +61,13 @@ public class User_Page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent info = new Intent(User_Page.this, History.class);
+                startActivity(info);
+            }
+        });
+        btn_j_users_changepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(User_Page.this, Changeinfo.class));
             }
         });
     }

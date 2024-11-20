@@ -7,4 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".History">
 
+    <ListView
+        android:id="@+id/lv_v_history_historylist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_v_history_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_v_history_tempbtn" />
+
+    <Button
+        android:id="@+id/btn_v_history_tempbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="117dp"
+        android:text="Temp go back"
+        app:layout_constraintBottom_toTopOf="@+id/lv_v_history_historylist"
+        app:layout_constraintEnd_toEndOf="@+id/lv_v_history_historylist"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_v_history_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="139dp"
+        android:layout_marginBottom="26dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_v_history_historylist" />
 </androidx.constraintlayout.widget.ConstraintLayout>

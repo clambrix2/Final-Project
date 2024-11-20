@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String enemies_comments_table_name = "Ecomments";
     public DatabaseHelper(Context c)
     {
-        super(c, database_name, null, 16);
+        super(c, database_name, null, 17);
     }
 
     @Override
@@ -191,8 +191,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         if(countfromrecords(history_table_name) == 0)
         {
+            int i = gettheidthatwontwork(3);
             SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL("INSERT INTO " + history_table_name + "(Title, pageid, posttype, likes,dislike, Date, Usersid) VALUES ('I Think this is the best Weapon', 1, 'Posts', 2, 30, '11/13/2024', 3);");
+            db.execSQL("INSERT INTO " + history_table_name + "(Title, pageid, posttype, likes,dislike, Date, Usersid) VALUES ('I Think this is the best Weapon', 1, 'Posts', 2, 30, '11/13/2024', '" + i + "');");
             db.close();
         }
     }
@@ -268,8 +269,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        Log.d("Fail to reach bookmark", "");
        return null;
    }
+   public HistoryData gethistoryinfo(int i)
+   {
+       if(countfromrecords(history_table_name) != 0)
+       {
+           SQLiteDatabase db = this.getReadableDatabase();
+           String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
+           Cursor cursor = db.rawQuery(quary, null);
+
+           if(i <= cursor.getCount())
+           {
+               cursor.move(i);
+               HistoryData ht = new HistoryData(cursor.getString(1), cursor.getInt(2), cursor.getString(3),cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
+               db.close();
+               return  ht;
+           }
+           db.close();
+       }
+       return null;
+   }
 
 
+
+
+
+   ///updateing and deleteing stuff
+    public void updatepassword(String p)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE " + users_table_name + " SET Password = '" + p + "' WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';");
+    }
+    //end
    //testing stuff
     public void testing()
     {

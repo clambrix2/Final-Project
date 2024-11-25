@@ -32,6 +32,16 @@ public class Login extends AppCompatActivity {
         tv_j_login_error.setVisibility(View.INVISIBLE);
         onclicklinster();
         dbhelper.testing();
+        dbhelper.testing2();
+        dbhelper.testing3();
+        dbhelper.testing4();
+        dbhelper.testing5();
+        dbhelper.testing6();
+        dbhelper.testing7();
+        dbhelper.testing8();
+        dbhelper.testing9();
+        dbhelper.testing10();
+        dbhelper.testing11();
     }
     public void onclicklinster()
     {

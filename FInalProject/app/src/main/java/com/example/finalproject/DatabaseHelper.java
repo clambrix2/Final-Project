@@ -322,7 +322,84 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         db.close();
+        SQLiteDatabase db2 = getReadableDatabase();
+        String quary2 = "SELECT * FROM " + users_table_name;
+        Cursor cursor2 = db2.rawQuery(quary2, null);
+        cursor2.moveToFirst();
+        for(int i = 0; i < users_table_name.length(); i++)
+        {
+            if(i == 0) {
+
+
+                Log.d("Username", cursor.getString(1));
+                Log.d("Password", cursor.getString(2));
+               // Log.d("Date", cursor.getString(3));
+             //   Log.d("Id", cursor.getInt(4) + "");
+              //  Log.d("Type", cursor.getString(5));
+              //  Log.d("Usersid", cursor.getInt(6) + "");
+                cursor.moveToNext();
+            }
+        }
+        db.close();
+        SQLiteDatabase db3 = getReadableDatabase();
+        String quary3 = "SELECT * FROM " + items_table_name;
+        Cursor cursor3 = db3.rawQuery(quary3, null);
+        cursor3.moveToFirst();
+        for(int i = 0; i < items_table_name.length(); i++)
+        {
+            if(i == 0) {
+
+
+                Log.d("Title", cursor.getString(1));
+                Log.d("Body", cursor.getString(2));
+                Log.d("Date", cursor.getString(3));
+              //  Log.d("Id", cursor.getInt(4) + "");
+             //   Log.d("Type", cursor.getString(5));
+             //   Log.d("Usersid", cursor.getInt(6) + "");
+                cursor.moveToNext();
+            }
+        }
+        db.close();
+        SQLiteDatabase db4 = getReadableDatabase();
+        String quary4 = "SELECT * FROM " + items_comments_table_name;
+        Cursor cursor4 = db4.rawQuery(quary4, null);
+        cursor4.moveToFirst();
+        for(int i = 0; i < items_comments_table_name.length(); i++)
+        {
+            if(i == 0) {
+
+
+                Log.d("Body", cursor.getString(1));
+               // Log.d("Body", cursor.getString(2));
+               // Log.d("Date", cursor.getString(3));
+              //  Log.d("Id", cursor.getInt(4) + "");
+               // Log.d("Type", cursor.getString(5));
+               // Log.d("Usersid", cursor.getInt(6) + "");
+                cursor.moveToNext();
+            }
+        }
+        db.close();
+        SQLiteDatabase db5 = getReadableDatabase();
+        String quary5 = "SELECT * FROM " + weapons_table_name;
+        Cursor cursor5 = db5.rawQuery(quary5, null);
+        cursor5.moveToFirst();
+        for(int i = 0; i < weapons_table_name.length(); i++)
+        {
+            if(i == 0) {
+
+
+                Log.d("Title", cursor.getString(1));
+                Log.d("Body", cursor.getString(2));
+                Log.d("Date", cursor.getString(3));
+               // Log.d("Id", cursor.getInt(4) + "");
+               // Log.d("Type", cursor.getString(5));
+               // Log.d("Usersid", cursor.getInt(6) + "");
+                cursor.moveToNext();
+            }
+        }
+        db.close();
     }
+
 
 
 

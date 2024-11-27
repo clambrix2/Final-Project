@@ -256,7 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
            SQLiteDatabase db = this.getReadableDatabase();
            String quary = " SELECT * FROM " + bookmark_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
            Cursor cursor = db.rawQuery(quary, null);
-
+            Log.d("Bookmark count", cursor.getCount() + "");
            if (i <= cursor.getCount()) {
                cursor.move(i);
                Bookmark bm = new Bookmark(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
@@ -273,17 +273,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    {
        if(countfromrecords(history_table_name) != 0)
        {
+           Log.d("History", "trying to add History");
            SQLiteDatabase db = this.getReadableDatabase();
            String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
            Cursor cursor = db.rawQuery(quary, null);
-
+           Log.d("Count", cursor.getCount() + "");
            if(i <= cursor.getCount())
            {
+               Log.d("Succefully", "Added History data");
                cursor.move(i);
                HistoryData ht = new HistoryData(cursor.getString(1), cursor.getInt(2), cursor.getString(3),cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
                db.close();
                return  ht;
            }
+           Log.d("Failed", "To add History Data");
            db.close();
        }
        return null;

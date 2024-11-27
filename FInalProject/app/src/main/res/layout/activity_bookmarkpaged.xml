@@ -9,16 +9,27 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="405dp"
+        android:layout_width="407dp"
         android:layout_height="132dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="67dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_v_bookmark_bm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ListView
         android:id="@+id/lv_v_bookmark_bm"
-        android:layout_width="409dp"
-        android:layout_height="529dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="201dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

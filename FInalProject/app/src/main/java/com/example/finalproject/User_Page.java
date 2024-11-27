@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +21,10 @@ public class User_Page extends AppCompatActivity {
     Button btn_j_users_Delete;
     TextView tv_j_users_Username;
     DatabaseHelper dbhelper;
+    ImageView iv_j_users_posts;
+    ImageView iv_j_users_enemies;
+    ImageView iv_j_users_items;
+    ImageView iv_j_users_weapons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,10 @@ public class User_Page extends AppCompatActivity {
         btn_j_users_changepass = findViewById(R.id.btn_v_users_changepass);
         btn_j_users_Delete = findViewById(R.id.btn_v_users_Delete);
         tv_j_users_Username = findViewById(R.id.tv_v_usersinfo_Usersname);
+        iv_j_users_posts = findViewById(R.id.iv_v_users_posts);
+        iv_j_users_enemies = findViewById(R.id.iv_v_users_enemies);
+        iv_j_users_items = findViewById(R.id.iv_v_users_items);
+        iv_j_users_weapons = findViewById(R.id.iv_v_users_weapons);
         dbhelper = new DatabaseHelper(this);
 
         fillinfo(LoginUser.getloginuser().getUserid());
@@ -68,6 +77,12 @@ public class User_Page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(User_Page.this, Changeinfo.class));
+            }
+        });
+        iv_j_users_weapons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent( User_Page.this, Weapon_Wiki.class));
             }
         });
     }

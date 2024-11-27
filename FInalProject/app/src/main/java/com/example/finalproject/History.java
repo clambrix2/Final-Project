@@ -46,6 +46,16 @@ public class History extends AppCompatActivity {
         adapter = new History_cell(this, dbhelper);
         lv_j_history_historylist.setAdapter(adapter);
     }
+    public void deletebaddata()
+    {
+      int  i = 0;
+      if(lv_j_history_historylist.getItemAtPosition(i) == null)
+      {
+         // lv_j_history_historylist.removeView(i);
+      }
+
+    }
+
 
 
 }

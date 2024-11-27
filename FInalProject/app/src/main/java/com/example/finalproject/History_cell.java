@@ -57,10 +57,12 @@ public class History_cell extends BaseAdapter {
         TextView Dislikes = view.findViewById(R.id.tv_v_hiscell_dislikes);
         TextView Date = view.findViewById(R.id.tv_v_hiscell_date);
         HistoryData ht = dbhelper.gethistoryinfo(i + 1);
-        Title.setText(ht.getTitle());
-        Likes.setText(ht.getLikes());
-        Dislikes.setText(ht.getDislikes());
-        Date.setText(ht.getDate());
+        if(ht != null) {
+            Title.setText(ht.getTitle());
+            Likes.setText(ht.getLikes());
+            Dislikes.setText(ht.getDislikes());
+            Date.setText(ht.getDate());
+        }
 
 
         return view;

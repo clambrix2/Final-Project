@@ -291,6 +291,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        }
        return null;
    }
+   public Wikiinfo getweaponinfo(int i, String tn)
+   {
+       if (countfromrecords(weapons_table_name) != 0)
+       {
+           SQLiteDatabase db = this.getReadableDatabase();
+           String quary = " SELECT * FROM " + tn + ";";
+           Cursor cursor = db.rawQuery(quary,null);
+           if(i <= cursor.getCount())
+           {
+               cursor.move(i);
+               Wikiinfo wi = new Wikiinfo(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+               db.close();
+               return wi;
+           }
+       }
+       return null;
+   }
+
 
 
 

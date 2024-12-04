@@ -85,5 +85,11 @@ public class User_Page extends AppCompatActivity {
                 startActivity( new Intent( User_Page.this, Weapon_Wiki.class));
             }
         });
+        iv_j_users_items.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(User_Page.this, Items_Wiki.class));
+            }
+        });
     }
 }

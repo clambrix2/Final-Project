@@ -6,7 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FDFDFD"
-    tools:context=".Weapon_Wiki">
+    tools:context=".Items_Wiki">
+
+    <ImageView
+        android:id="@+id/iv_v_weapons_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_v_weapon_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/user_icon_new_new" />
 
     <ImageView
         android:id="@+id/iv_v_weapons_social"
@@ -51,17 +62,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/weapons_icon_new_new" />
-
-    <ImageView
-        android:id="@+id/iv_v_weapons_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
-        app:layout_constraintBottom_toTopOf="@+id/lv_v_weapon_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/user_icon_new_new" />
 
     <ListView
         android:id="@+id/lv_v_weapon_list"

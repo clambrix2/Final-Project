@@ -36,7 +36,8 @@ public class Bookmark_cell extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return 0;
+        Bookmark bm = dbhelper.getbookmorakinfo(i + 1);
+        return bm;
     }
 
     @Override
@@ -69,6 +70,6 @@ public class Bookmark_cell extends BaseAdapter {
 
 
 
-        return view;
+        return   view;
     }
 }

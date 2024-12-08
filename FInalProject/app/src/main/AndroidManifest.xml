@@ -13,6 +13,42 @@
         android:theme="@style/Theme.FInalProject"
         tools:targetApi="31">
         <activity
+            android:name=".Create_Comments"
+            android:exported="false" />
+        <activity
+            android:name=".WikiComment_cell"
+            android:exported="false" />
+        <activity
+            android:name=".WikiComment_page"
+            android:exported="false" />
+        <activity
+            android:name=".Comments_cell"
+            android:exported="false" />
+        <activity
+            android:name=".Comments_list_page"
+            android:exported="false" />
+        <activity
+            android:name=".Edit_Post"
+            android:exported="false" />
+        <activity
+            android:name=".Create_Wiki"
+            android:exported="false" />
+        <activity
+            android:name=".NewUser"
+            android:exported="false" />
+        <activity
+            android:name=".Create_Post"
+            android:exported="false" />
+        <activity
+            android:name=".Soical_Page_Info"
+            android:exported="false" />
+        <activity
+            android:name=".Post_cell"
+            android:exported="false" />
+        <activity
+            android:name=".Soicals_list_page"
+            android:exported="false" />
+        <activity
             android:name=".Enemies_Wiki"
             android:exported="false" />
         <activity

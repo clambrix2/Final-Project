@@ -69,6 +69,7 @@ public class Weapon_Wiki extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 data = new Intent(Weapon_Wiki.this, Wiki_info_Page.class);
+                data.putExtra("Id", i);
                 startActivity(data);
             }
         });

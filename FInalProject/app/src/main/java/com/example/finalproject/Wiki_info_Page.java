@@ -24,7 +24,9 @@ public class Wiki_info_Page extends AppCompatActivity {
     ImageView items;
     ImageView enemies;
     ImageView soical;
-    Intent data;
+    ImageView Comments;
+    DatabaseHelper dbhelper;
+    int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,10 @@ public class Wiki_info_Page extends AppCompatActivity {
         items = findViewById(R.id.iv_v_wiki_items);
         enemies = findViewById(R.id.iv_v_wiki_enemies);
         soical = findViewById(R.id.iv_v_wiki_social);
+        Comments = findViewById(R.id.btn_v_wikiinfo_comments);
+        dbhelper = new DatabaseHelper(this);
+        Intent pass = getIntent();
+        i = pass.getIntExtra("Id", 0);
         onclicklinster();
         fillinfo();
 
@@ -50,12 +56,44 @@ public class Wiki_info_Page extends AppCompatActivity {
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(Wiki_info_Page.this, User_Page.class));
             }
         });
+        weapon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, Weapon_Wiki.class));
+            }
+        });
+        items.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, Items_Wiki.class));
+            }
+        });
+        enemies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, Enemies_Wiki.class));
+            }
+        });
+        soical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, Soicals_list_page.class));
+            }
+        });
+        Comments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, WikiComment_page.class));
+            }
+        });
+
     }
     public void fillinfo()
     {
+        Wikiinfo wi = dbhelper.getweaponinfo(i + 1, Wikiinfo.getType());
        title.setText(Wikiinfo.getTitle());
        body.setText(Wikiinfo.getBody());
        date.setText(Wikiinfo.getDate());

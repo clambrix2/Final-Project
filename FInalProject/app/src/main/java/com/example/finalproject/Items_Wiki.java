@@ -68,7 +68,7 @@ public class Items_Wiki extends AppCompatActivity {
         lv_j_items_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(Items_Wiki.this, Wiki_info_Page.class));
+                startActivity(new Intent(Items_Wiki.this, Wiki_info_Page.class).putExtra("Id", i));
             }
         });
     }

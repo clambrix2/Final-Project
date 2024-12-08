@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,7 @@ public class Login extends AppCompatActivity {
     EditText et_j_login_password;
     TextView tv_j_login_error;
     Button btn_j_login_login;
+    ImageView newUser;
     DatabaseHelper dbhelper;
     //testing
     @Override
@@ -30,18 +32,9 @@ public class Login extends AppCompatActivity {
         btn_j_login_login = findViewById(R.id.btn_v_login_login);
         tv_j_login_error = findViewById(R.id.tv_v_login_error);
         tv_j_login_error.setVisibility(View.INVISIBLE);
+        newUser = findViewById(R.id.Btn_v_login_newuser);
         onclicklinster();
-        dbhelper.testing();
-        dbhelper.testing2();
-        dbhelper.testing3();
-        dbhelper.testing4();
-        dbhelper.testing5();
-        dbhelper.testing6();
-        dbhelper.testing7();
-        dbhelper.testing8();
-        dbhelper.testing9();
-        dbhelper.testing10();
-        dbhelper.testing11();
+
     }
     public void onclicklinster()
     {
@@ -55,6 +48,12 @@ public class Login extends AppCompatActivity {
                     startActivity(passover);
                 }
 
+            }
+        });
+        newUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    startActivity(new Intent(Login.this, NewUser.class));
             }
         });
     }

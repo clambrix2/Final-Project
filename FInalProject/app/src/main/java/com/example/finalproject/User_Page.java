@@ -25,6 +25,7 @@ public class User_Page extends AppCompatActivity {
     ImageView iv_j_users_enemies;
     ImageView iv_j_users_items;
     ImageView iv_j_users_weapons;
+    ImageView createwiki;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,29 @@ public class User_Page extends AppCompatActivity {
         iv_j_users_enemies = findViewById(R.id.iv_v_users_enemies);
         iv_j_users_items = findViewById(R.id.iv_v_users_items);
         iv_j_users_weapons = findViewById(R.id.iv_v_users_weapons);
+        createwiki = findViewById(R.id.btn_v_user_admin_create);
         dbhelper = new DatabaseHelper(this);
+        isadmin();
 
         fillinfo(LoginUser.getloginuser().getUserid());
         onclick(LoginUser.getloginuser().getUserid());
 
 
     }
+    private void isadmin()
+    {
+     if(LoginUser.getloginuser().getUserid() == 1)
+     {
+         createwiki.setVisibility(View.VISIBLE);
+         createwiki.setClickable(true);
+     }
+     else
+     {
+     createwiki.setVisibility(View.INVISIBLE);
+     createwiki.setClickable(false);
+     }
+    }
+
     private void fillinfo(int id)
     {
         tv_j_users_Username.setText(dbhelper.getusername(id));
@@ -89,6 +106,24 @@ public class User_Page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(User_Page.this, Items_Wiki.class));
+            }
+        });
+        iv_j_users_enemies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(User_Page.this, Enemies_Wiki.class));
+            }
+        });
+        iv_j_users_posts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(User_Page.this, Soicals_list_page.class));
+            }
+        });
+        createwiki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(User_Page.this, Create_Wiki.class));
             }
         });
     }

@@ -33,6 +33,8 @@ Bookmark_cell adapter;
     {
         adapter = new Bookmark_cell(this, dbhelper);
         lv_j_bookmark_bm.setAdapter(adapter);
+
+
     }
 
 }

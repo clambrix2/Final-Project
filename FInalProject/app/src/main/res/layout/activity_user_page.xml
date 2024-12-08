@@ -21,7 +21,7 @@
         android:id="@+id/btn_v_users_bm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:text="Bookmark"
         app:layout_constraintStart_toStartOf="@+id/btn_v_users_his"
         app:layout_constraintTop_toBottomOf="@+id/iv_v_users_items" />
@@ -30,7 +30,7 @@
         android:id="@+id/btn_v_users_his"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="4dp"
         android:text="History"
         app:layout_constraintBottom_toTopOf="@+id/btn_v_users_changepass"
         app:layout_constraintStart_toStartOf="@+id/btn_v_users_changepass" />
@@ -39,8 +39,8 @@
         android:id="@+id/btn_v_users_changepass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="286dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="24dp"
         android:text="Change Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -118,4 +118,14 @@
         app:layout_constraintTop_toTopOf="@+id/iv_v_users_items"
         app:srcCompat="@android:drawable/arrow_up_float"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/btn_v_user_admin_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_v_users_Delete"
+        app:layout_constraintTop_toBottomOf="@+id/btn_v_users_Delete"
+        app:srcCompat="@drawable/create" />
 </androidx.constraintlayout.widget.ConstraintLayout>

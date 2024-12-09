@@ -49,18 +49,12 @@ public class Comments_cell extends BaseAdapter {
             view = inflater.inflate(R.layout.activity_comments_cell, null);
         }
         TextView Commentbody = view.findViewById(R.id.tv_v_comments_cell_comment);
-        TextView Likes = view.findViewById(R.id.tv_v_commentslist_likes);
-        TextView Dislikes = view.findViewById(R.id.tv_v_comments_cell_dislikes);
-        ImageView Likesbutton = view.findViewById(R.id.btn_v_comments_cell_likes);
-        ImageView Dislikesbutton = view.findViewById(R.id.btn_v_comments_cell_dislikes);
         Log.d("Is Post Ative", Post_info.isIsative() + "");
 
            Comment  com = dbhelper.getcommentinfo(i + 1,Post_info.getPostid(),"Posts");
            if(com != null)
           {
                 Commentbody.setText(Comment.getBody());
-                Likes.setText(Comment.getLikes() + "");
-                Dislikes.setText(Comment.getDislikes() + "");
             }
 
 

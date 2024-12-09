@@ -19,6 +19,7 @@ public class Weapon_Wiki extends AppCompatActivity {
     ImageView iv_j_weapons_items;
     ImageView iv_j_weapons_enemies;
     ImageView iv_j_weapons_soical;
+    ImageView Search;
     ListView lv_j_weapons_list;
     Wiki_cell adpater;
     DatabaseHelper dbhelper;
@@ -33,6 +34,7 @@ public class Weapon_Wiki extends AppCompatActivity {
         iv_j_weapons_items = findViewById(R.id.iv_v_weapons_items);
         iv_j_weapons_soical = findViewById(R.id.iv_v_weapons_social);
         lv_j_weapons_list = findViewById(R.id.lv_v_weapon_list);
+        Search = findViewById(R.id.btn_v_weapon_wiki_search);
         dbhelper = new DatabaseHelper(this);
         onclicklinster();
         filllist();
@@ -62,7 +64,7 @@ public class Weapon_Wiki extends AppCompatActivity {
         iv_j_weapons_soical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(Weapon_Wiki.this, Soicals_list_page.class));
             }
         });
         lv_j_weapons_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,6 +73,12 @@ public class Weapon_Wiki extends AppCompatActivity {
                 data = new Intent(Weapon_Wiki.this, Wiki_info_Page.class);
                 data.putExtra("Id", i);
                 startActivity(data);
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Weapon_Wiki.this, Wiki_Search.class));
             }
         });
     }

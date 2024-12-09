@@ -84,6 +84,7 @@ public class Soical_Page_Info extends AppCompatActivity {
         Likes.setText(Post_info.getLikes() + "");
         Dislikes.setText(Post_info.getDislikes() + "");
         Date.setText(Post_info.getDate());
+        dbhelper.addhistory(Post_info.getTitle(), Post_info.getPostid(), "Posts", Post_info.getLikes(), Post_info.getDislikes(), LoginUser.getloginuser().getUserid());
     }
     public void updateLikesandDislikes()
     {
@@ -145,6 +146,36 @@ public class Soical_Page_Info extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Soical_Page_Info.this, Comments_list_page.class));
+            }
+        });
+        User.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soical_Page_Info.this, User_Page.class));
+            }
+        });
+        Weapon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soical_Page_Info.this, Weapon_Wiki.class));
+            }
+        });
+        Item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soical_Page_Info.this, Items_Wiki.class));
+            }
+        });
+        Enemy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soical_Page_Info.this, Enemies_Wiki.class));
+            }
+        });
+        Soical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soical_Page_Info.this, Soicals_list_page.class));
             }
         });
     }

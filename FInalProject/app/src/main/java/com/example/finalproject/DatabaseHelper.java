@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String enemies_comments_table_name = "Ecomments";
     public DatabaseHelper(Context c)
     {
-        super(c, database_name, null, 21);
+        super(c, database_name, null, 24);
     }
 
     @Override
@@ -201,7 +201,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         {
             int i = gettheidthatwontwork(3);
             SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL("INSERT INTO " + history_table_name + "(Title, pageid, posttype, likes,dislike, Date, Usersid) VALUES ('I Think this is the best Weapon', 1, 'Posts', 2, 30, '11/13/2024', '" + i + "');");
+            db.execSQL("INSERT INTO " + history_table_name + "(Title, pageid, posttype, likes,dislike, Date, Usersid) VALUES ('I Think this is the best Weapon', 1, 'Posts', 2, 30, '" + Calendar.getInstance().getTime() + "','" + i + "');");
             db.close();
         }
     }
@@ -230,18 +230,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
        return null;
    }
-   public boolean checkinbookmark(String tn)
+   public boolean checkinbookmark(String tn, String t)
    {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String quary = "SELECT * From " + tn + " WHERE postid = '" + Post_info.getPostid() + "' AND Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
-        Cursor cursor = db.rawQuery(quary, null);
+       if(t.equals(weapons_table_name))
+       {
+           SQLiteDatabase db = this.getWritableDatabase();
+           String quary = "SELECT * From " + tn + " WHERE postid = '" + Wikiinfo.getId() + "' AND Usersid = '" + LoginUser.getloginuser().getUserid() + "' AND posttype = '" + Wikiinfo.getType() + "' ;";
+           Cursor cursor = db.rawQuery(quary, null);
+           if(cursor.moveToFirst())
+           {
+               return  true;
+           }
+       }
+       else if(t.equals(items_table_name))
+       {
+           SQLiteDatabase db = this.getWritableDatabase();
+           String quary = "SELECT * From " + tn + " WHERE postid = '" + Wikiinfo.getId() + "' AND Usersid = '" + LoginUser.getloginuser().getUserid() + "' AND posttype = '" + Wikiinfo.getType() + "' ;";
+           Cursor cursor = db.rawQuery(quary, null);
+           if(cursor.moveToFirst())
+           {
+               return  true;
+           }
+       }
+       else if(t.equals(enemies_table_name))
+       {
+           SQLiteDatabase db = this.getWritableDatabase();
+           String quary = "SELECT * From " + tn + " WHERE postid = '" + Wikiinfo.getId() + "' AND Usersid = '" + LoginUser.getloginuser().getUserid() + "' AND posttype = '" + Wikiinfo.getType() + "' ;";
+           Cursor cursor = db.rawQuery(quary, null);
+           if(cursor.moveToFirst())
+           {
+               return  true;
+           }
+       }
+       else
+       {
+           SQLiteDatabase db = this.getReadableDatabase();
+           String quary = "SELECT * From " + tn + " WHERE postid = '" + Post_info.getPostid() + "' AND Usersid = '" + LoginUser.getloginuser().getUserid() + "';";
+           Cursor cursor = db.rawQuery(quary, null);
 
-        if(cursor.moveToFirst())
-        {
-            Log.d("Bookmark", " Already added");
-            return true;
-        }
-        Log.d("Bookmark", "Not Added yet");
+           if(cursor.moveToFirst())
+           {
+               Log.d("Bookmark", " Already added");
+               return true;
+           }
+           Log.d("Bookmark", "Not Added yet");
+       }
        return false;
    }
 
@@ -430,6 +463,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return null;
     }
+    public String getwikitablename()
+    {
+        if(Wikiinfo.getType().equals(weapons_table_name))
+        {
+            return weapons_comments_table_name;
+        }
+        else if(Wikiinfo.getType().equals(items_table_name))
+        {
+            return items_comments_table_name;
+        }
+        else if(Wikiinfo.getType().equals(enemies_table_name))
+        {
+            return enemies_comments_table_name;
+        }
+            return null;
+    }
+
 
 
 
@@ -464,7 +514,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(tp.equals("Post"))
         {
             Log.d("About to", " Add Bookmark");
-            if(!checkinbookmark(tn))
+            if(!checkinbookmark(tn, tp))
             {
                 Log.d("Adding", "Bookmark");
                 SQLiteDatabase db = this.getWritableDatabase();
@@ -472,6 +522,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
 
+        }
+        else if(tp.equals(weapons_table_name))
+        {
+            if(!checkinbookmark(tn, tp))
+            {
+                Log.d("Adding", "Bookmark");
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.execSQL("INSERT INTO " + bookmark_table_name + "(Title, Body, Date, postid , posttype, Usersid) VALUES ('" + Wikiinfo.getTitle() + "','" + Wikiinfo.getBody() + "','" + Calendar.getInstance().getTime().toString() + "','" + Wikiinfo.getId() + "','" + Wikiinfo.getType() + "','" + LoginUser.getloginuser().getUserid() + "');");
+                db.close();
+            }
+        }
+        else if(tp.equals(items_table_name))
+        {
+            if(!checkinbookmark(tn, tp))
+            {
+                Log.d("Adding", "Bookmark");
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.execSQL("INSERT INTO " + bookmark_table_name + "(Title, Body, Date, postid , posttype, Usersid) VALUES ('" + Wikiinfo.getTitle() + "','" + Wikiinfo.getBody() + "','" + Calendar.getInstance().getTime().toString() + "','" + Wikiinfo.getId() + "','" + Wikiinfo.getType() + "','" + LoginUser.getloginuser().getUserid() + "');");
+                db.close();
+            }
+        }
+        else if(tp.equals(enemies_table_name))
+        {
+            if(!checkinbookmark(tn, tp))
+            {
+                Log.d("Adding", "Bookmark");
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.execSQL("INSERT INTO " + bookmark_table_name + "(Title, Body, Date, postid , posttype, Usersid) VALUES ('" + Wikiinfo.getTitle() + "','" + Wikiinfo.getBody() + "','" + Calendar.getInstance().getTime().toString() + "','" + Wikiinfo.getId() + "','" + Wikiinfo.getType() + "','" + LoginUser.getloginuser().getUserid() + "');");
+                db.close();
+            }
         }
     }
     public void createpost(String t, String b, Date c)
@@ -544,6 +624,71 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
     }
+    public void Deleteuser()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(" DELETE FROM " + users_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "';");
+        db.close();
+    }
+
+    public void DeleteWiki(String tn)
+    {
+        if(tn.equals(weapons_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" DELETE FROM " + tn + " WHERE Weaponsid = '" + Wikiinfo.getId() + "';");
+            db.close();
+        }
+        else if(tn.equals(items_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" DELETE FROM " + tn + " WHERE Itemid = '" + Wikiinfo.getId() + "';");
+            db.close();
+        }
+        else if(tn.equals(enemies_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" DELETE FROM " + tn + " WHERE Enemiesid = '" + Wikiinfo.getId() + "';");
+            db.close();
+        }
+
+    }
+    public void Editwiki(String tn, String t, String b, String l, int id)
+    {
+        if(tn.equals(weapons_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" Update " + tn + " SET Title = '" + t + "' WHERE Weaponsid = '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Body = '" + b + "' WHERE Weaponsid = '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Location = '" + l + "' WHERE Weaponsid = '" + id + "';");
+            db.close();
+        }
+        else if(tn.equals(items_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" Update " + tn + " SET Title = '" + t + "' WHERE Itemid = '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Body = '" + b + "' WHERE Itemid = '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Location = '" + l + "' WHERE Itemid = '" + id + "';");
+            db.close();
+        }
+        else if(tn.equals(enemies_table_name))
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(" Update " + tn + " SET Title = '" + t + "' WHERE Enemiesid = '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Body = '" + b + "' WHERE Enemiesid - '" + id + "';");
+            db.execSQL(" Update " + tn + " SET Location = '" + l + "' WHERE Enemiesid + '" + id + "';");
+            db.close();
+        }
+    }
+    public void addhistory(String t, int id, String ty, int l, int d, int i)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO " + history_table_name + "(Title, pageid, posttype, likes,dislike, Date, Usersid) VALUES ('"+ t + "', '" + id + "','" + ty + "', '" + l + "', '" + d + "', '" + Calendar.getInstance().getTime().toString()  + "','" + i+ "');");
+        db.close();
+    }
+
+
+
 
 
 
@@ -555,6 +700,188 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //end
+    //search functions
+    public Wikiinfo Searchwiki(String s, String tn, int i)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT * FROM " + tn + " WHERE Title = '" + s + "' OR Location = '" + s + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        Log.d("Count", cursor.getCount() + "");
+        Log.d("I", i + "");
+        if( i < cursor.getCount() && cursor.moveToFirst())
+        {
+            cursor.move(i);
+            Wikiinfo wi = new Wikiinfo(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), tn, cursor.getInt(0));
+            db.close();
+            return wi;
+        }
+        return null;
+    }
+    public int Getsearchcount(String s, String tn, int i)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT * FROM " + tn + " WHERE Title = '" + s + "' OR Location = '" + s + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        Log.d("Count", cursor.getCount() + "");
+        Log.d("I", i + "");
+
+            db.close();
+            return cursor.getCount();
+
+    }
+    public Post_info searchpost(String t, int r)
+    {
+        int i = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT Usersid FROM " + users_table_name + " WHERE Username = '" + t + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        if(cursor.moveToFirst())
+        {
+            i = cursor.getInt(0);
+        }
+        db.close();
+        db = this.getReadableDatabase();
+        String quary2 = " SELECT * FROM " + post_table_name + " WHERE Usersid = '" + i + "';";
+        cursor = db.rawQuery(quary2, null);
+        if(cursor.moveToFirst())
+        {
+            cursor.move(r);
+            Post_info pi = new Post_info(cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(0), false);
+            db.close();
+            return pi;
+        }
+        db.close();
+        return null;
+    }
+    public int seachpostcount( String t)
+    {
+        int i = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT Usersid FROM " + users_table_name + " WHERE Username = '" + t + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        if(cursor.moveToFirst())
+        {
+            i = cursor.getInt(0);
+        }
+        db.close();
+        db = this.getReadableDatabase();
+        String quary2 = " SELECT * FROM " + post_table_name + " WHERE Usersid = '" + i + "';";
+        cursor = db.rawQuery(quary2, null);
+        if(cursor.moveToFirst())
+        {
+            Post_info pi = new Post_info(cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(0), false);
+            db.close();
+            return cursor.getCount();
+        }
+        db.close();
+        return cursor.getCount();
+    }
+    public Bookmark searchbookmark(String t, int i)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT * FROM " + bookmark_table_name + " WHERE Title = '" + t + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        if( i < cursor.getCount() && cursor.moveToFirst())
+        {
+            cursor.move(i);
+            Bookmark bm = new Bookmark(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
+            db.close();
+            return  bm;
+        }
+        return null;
+    }
+    public int searchbookmarkcount(String t)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String quary = " SELECT * FROM " + bookmark_table_name + " WHERE Title = '" + t + "';";
+        Cursor cursor = db.rawQuery(quary, null);
+        if( cursor.moveToFirst())
+        {
+
+            db.close();
+            return cursor.getCount();
+        }
+        return 0;
+    }
+    public HistoryData searchhistorytime(String t, int i)
+    {
+        if(t.equals("Newest to Oldest"))
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "' Order by Date";
+            Cursor cursor = db.rawQuery(quary, null);
+            if(cursor.moveToFirst())
+            {
+                cursor.move(i);
+                //Title, pageid, posttype, likes,dislike, Date, Usersid
+                HistoryData hi = new HistoryData(cursor.getString(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
+                return hi;
+
+            }
+            db.close();
+            return null;
+        }
+        else if(t.equals("Oldest to Newest"))
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "' Order by Date";
+            Cursor cursor = db.rawQuery(quary, null);
+            if(cursor.moveToFirst() && i > 0) {
+                cursor.move(cursor.getCount() - i);
+                //Title, pageid, posttype, likes,dislike, Date, Usersid
+                HistoryData hi = new HistoryData(cursor.getString(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
+                return hi;
+            }
+            return null;
+        }
+        return null;
+    }
+    public int searchhistorycount9(String t)
+    {
+        if(t.equals("Newest to Oldest"))
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "' Order by Date";
+            Cursor cursor = db.rawQuery(quary, null);
+            if(cursor.moveToFirst())
+            {
+
+
+                return cursor.getCount();
+
+            }
+            db.close();
+            return 0;
+        }
+        else if(t.equals("Oldest to Newest"))
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+            String quary = " SELECT * FROM " + history_table_name + " WHERE Usersid = '" + LoginUser.getloginuser().getUserid() + "' Order by Date";
+            Cursor cursor = db.rawQuery(quary, null);
+            if(cursor.moveToFirst())
+            {
+
+
+                return cursor.getCount();
+
+            }
+            db.close();
+            return 0;
+        }
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
    //testing stuff
     public void testing()
     {

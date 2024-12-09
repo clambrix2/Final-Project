@@ -15,10 +15,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class User_Page extends AppCompatActivity {
-    Button btn_j_users_bm;
-    Button btn_j_users_his;
-    Button btn_j_users_changepass;
-    Button btn_j_users_Delete;
+    ImageView btn_j_users_bm;
+    ImageView btn_j_users_his;
+    ImageView btn_j_users_changepass;
+    ImageView btn_j_users_Delete;
     TextView tv_j_users_Username;
     DatabaseHelper dbhelper;
     ImageView iv_j_users_posts;
@@ -73,6 +73,10 @@ public class User_Page extends AppCompatActivity {
         btn_j_users_Delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(LoginUser.getloginuser().getUserid() != 1)
+                {
+                    dbhelper.Deleteuser();
+                }
                 startActivity(new Intent(User_Page.this, Login.class));
             }
         });

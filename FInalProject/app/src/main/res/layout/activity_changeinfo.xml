@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D9BDA5"
     tools:context=".Changeinfo">
 
     <EditText
@@ -51,27 +52,27 @@
         android:shadowColor="#F40F0F"
         android:text="Error Passwords do not match"
         android:textColor="#E90000"
-        app:layout_constraintBottom_toTopOf="@+id/btn_v_change_edit"
-        app:layout_constraintEnd_toEndOf="@+id/btn_v_change_goback"
-        app:layout_constraintStart_toEndOf="@+id/btn_v_change_goback" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="651dp" />
 
-    <Button
-        android:id="@+id/btn_v_change_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="173dp"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_v_change_error"
-        app:layout_constraintStart_toEndOf="@+id/tv_v_change_error" />
-
-    <Button
+    <ImageView
         android:id="@+id/btn_v_change_goback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="2dp"
-        android:text="Go back"
+        android:layout_width="161dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="680dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_change_error" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/go_back" />
+
+    <ImageView
+        android:id="@+id/btn_v_change_edit"
+        android:layout_width="155dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="692dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/edit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

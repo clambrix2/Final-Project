@@ -50,14 +50,12 @@
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="394dp"
+        android:layout_height="778dp"
         android:background="#D9BDA5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lv_v_comments_comments"
-        app:srcCompat="@android:drawable/menuitem_background" />
+        app:srcCompat="@android:drawable/menuitem_background"
+        tools:layout_editor_absoluteY="150dp" />
 
     <ListView
         android:id="@+id/lv_v_comments_comments"

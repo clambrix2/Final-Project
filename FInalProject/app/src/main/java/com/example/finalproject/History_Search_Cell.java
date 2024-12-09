@@ -15,30 +15,27 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.Calendar;
-import java.util.Date;
+public class History_Search_Cell extends BaseAdapter {
+Context context;
+DatabaseHelper dbhelper;
+String search;
 
-public class History_cell extends BaseAdapter {
-
-    Context context;
-    DatabaseHelper dbhelper;
-
-    public History_cell(Context c, DatabaseHelper db)
-    {
-        context = c;
-        dbhelper = db;
-    }
+public History_Search_Cell(Context c, DatabaseHelper db, String s)
+{
+    context = c;
+    dbhelper = db;
+    search = s;
+}
 
 
     @Override
     public int getCount() {
-        dbhelper.countfromrecords(dbhelper.getHistory_table_name() + "");
-        return dbhelper.countfromrecords(dbhelper.getHistory_table_name()) - 1;
+        return dbhelper.searchhistorycount9(search);
     }
 
     @Override
     public Object getItem(int i) {
-        return dbhelper.gethistoryinfo(i + 1);
+        return null;
     }
 
     @Override
@@ -48,24 +45,24 @@ public class History_cell extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-
-        if (view == null) {
+        if(view == null)
+        {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Login.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_history_cell, null);
+            view = inflater.inflate(R.layout.activity_history_search_cell, null);
         }
         TextView Title = view.findViewById(R.id.tv_v_hiscell_title);
         TextView Likes = view.findViewById(R.id.tv_v_hiscell_likes);
         TextView Dislikes = view.findViewById(R.id.tv_v_hiscell_dislikes);
         TextView Date = view.findViewById(R.id.tv_v_hiscell_date);
-        HistoryData ht = dbhelper.gethistoryinfo(i + 1);
-        if(ht != null) {
-            Title.setText(ht.getTitle());
-            Likes.setText(ht.getLikes());
-            Dislikes.setText(ht.getDislikes());
-            Date.setText(ht.getDate());
+        Log.d("Here", " In History search cell");
+        HistoryData hi = dbhelper.searchhistorytime(search, i);
+        if(hi  != null)
+        {
+            Title.setText(hi.getTitle());
+            Likes.setText(hi.getLikes());
+            Dislikes.setText(hi.getDislikes());
+            Date.setText(hi.getDate());
         }
-
-
         return view;
     }
 }

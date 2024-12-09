@@ -7,125 +7,123 @@
     android:layout_height="match_parent"
     tools:context=".User_Page">
 
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="423dp"
+        android:layout_height="803dp"
+        android:layout_marginTop="128dp"
+        android:background="#D9BDA5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/menuitem_background" />
+
     <TextView
         android:id="@+id/tv_v_usersinfo_Usersname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="158dp"
+        android:layout_height="348dp"
+        android:layout_marginTop="232dp"
+        android:singleLine="false"
         android:text="Testing"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/iv_v_users_weapons" />
-
-    <Button
-        android:id="@+id/btn_v_users_bm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Bookmark"
-        app:layout_constraintStart_toStartOf="@+id/btn_v_users_his"
-        app:layout_constraintTop_toBottomOf="@+id/iv_v_users_items" />
-
-    <Button
-        android:id="@+id/btn_v_users_his"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="History"
-        app:layout_constraintBottom_toTopOf="@+id/btn_v_users_changepass"
-        app:layout_constraintStart_toStartOf="@+id/btn_v_users_changepass" />
-
-    <Button
-        android:id="@+id/btn_v_users_changepass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="24dp"
-        android:text="Change Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_v_users_Delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Delete"
-        app:layout_constraintStart_toStartOf="@+id/btn_v_users_changepass"
-        app:layout_constraintTop_toBottomOf="@+id/btn_v_users_changepass" />
-
-    <ImageView
-        android:id="@+id/iv_v_users_posts"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_v_users_enemies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_v_users_enemies"
-        app:layout_constraintTop_toTopOf="@+id/iv_v_users_enemies"
-        app:srcCompat="@android:drawable/checkbox_on_background"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/iv_v_users_enemies"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_v_users_items"
-        app:layout_constraintEnd_toStartOf="@+id/iv_v_users_posts"
-        app:layout_constraintStart_toEndOf="@+id/iv_v_users_items"
-        app:layout_constraintTop_toTopOf="@+id/iv_v_users_items"
-        app:srcCompat="@android:drawable/btn_star"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
-        android:id="@+id/iv_v_users_items"
-        android:layout_width="100dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="74dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_v_users_his"
-        app:layout_constraintEnd_toStartOf="@+id/iv_v_users_enemies"
-        app:layout_constraintStart_toEndOf="@+id/iv_v_users_weapons"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_off"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/iv_v_users_weapons"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_v_users_enemies"
-        app:layout_constraintEnd_toStartOf="@+id/iv_v_users_items"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/iv_v_users_items"
-        app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_v_users_weapons"
-        app:layout_constraintEnd_toStartOf="@+id/iv_v_users_weapons"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_v_users_items"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btn_v_user_admin_create"
+        android:layout_width="142dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="632dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/create" />
+
+    <ImageView
+        android:id="@+id/iv_v_users_posts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_v_users_Delete"
-        app:layout_constraintTop_toBottomOf="@+id/btn_v_users_Delete"
-        app:srcCompat="@drawable/create" />
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/posts_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/iv_v_users_enemies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/enemies_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/iv_v_users_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/items_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/iv_v_users_weapons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/weapons_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/btn_v_users_bm"
+        android:layout_width="143dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bookmark" />
+
+    <ImageView
+        android:id="@+id/btn_v_users_his"
+        android:layout_width="141dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="316dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/history_" />
+
+    <ImageView
+        android:id="@+id/btn_v_users_changepass"
+        android:layout_width="153dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="484dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/change_password" />
+
+    <ImageView
+        android:id="@+id/btn_v_users_Delete"
+        android:layout_width="152dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="636dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/delete" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

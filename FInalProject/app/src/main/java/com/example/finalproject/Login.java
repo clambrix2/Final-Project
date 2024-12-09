@@ -16,7 +16,7 @@ public class Login extends AppCompatActivity {
     EditText et_j_login_username;
     EditText et_j_login_password;
     TextView tv_j_login_error;
-    Button btn_j_login_login;
+    ImageView btn_j_login_login;
     ImageView newUser;
     DatabaseHelper dbhelper;
     //testing
@@ -46,6 +46,10 @@ public class Login extends AppCompatActivity {
                 {
                     Intent passover = new Intent(Login.this, User_Page.class);
                     startActivity(passover);
+                }
+                else
+                {
+                tv_j_login_error.setVisibility(View.VISIBLE);
                 }
 
             }

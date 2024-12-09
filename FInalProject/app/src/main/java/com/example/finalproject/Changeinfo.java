@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,8 +21,8 @@ public class Changeinfo extends AppCompatActivity {
     EditText et_j_change_newpassword;
     EditText et_j_change_confirmpassword;
     TextView tv_j_change_error;
-    Button btn_j_change_goback;
-    Button btn_j_change_edit;
+    ImageView btn_j_change_goback;
+    ImageView btn_j_change_edit;
     DatabaseHelper dbhelper;
 
     @Override

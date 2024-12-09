@@ -25,6 +25,10 @@ public class Wiki_info_Page extends AppCompatActivity {
     ImageView enemies;
     ImageView soical;
     ImageView Comments;
+    ImageView Goback;
+    ImageView Delete;
+    ImageView Edit;
+    ImageView Save;
     DatabaseHelper dbhelper;
     int i;
     @Override
@@ -42,15 +46,35 @@ public class Wiki_info_Page extends AppCompatActivity {
         enemies = findViewById(R.id.iv_v_wiki_enemies);
         soical = findViewById(R.id.iv_v_wiki_social);
         Comments = findViewById(R.id.btn_v_wikiinfo_comments);
+        Goback = findViewById(R.id.btn_v_wiki_goback);
+        Delete = findViewById(R.id.btn_v_wikiinfo_delete);
+        Edit = findViewById(R.id.btn_v_wikiinfo_edit);
+        Save = findViewById(R.id.btn_v_wikiinfo_save);
+        Edit.setVisibility(View.INVISIBLE);
+        Edit.setClickable(false);
+        Delete.setVisibility(View.INVISIBLE);
+        Delete.setClickable(false);
         dbhelper = new DatabaseHelper(this);
         Intent pass = getIntent();
         i = pass.getIntExtra("Id", 0);
         onclicklinster();
         fillinfo();
+        isadmin();
 
 
 
     }
+    public void isadmin()
+    {
+        if(LoginUser.getloginuser().getUserid() == 1)
+        {
+            Edit.setClickable(true);
+            Edit.setVisibility(View.VISIBLE);
+            Delete.setVisibility(View.VISIBLE);
+            Delete.setClickable(true);
+        }
+    }
+
     public void onclicklinster()
     {
         user.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +113,44 @@ public class Wiki_info_Page extends AppCompatActivity {
                 startActivity(new Intent(Wiki_info_Page.this, WikiComment_page.class));
             }
         });
+        Goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Wikiinfo.getType().equals(dbhelper.getWeapons_table_name()))
+                {
+                    startActivity(new Intent(Wiki_info_Page.this, Weapon_Wiki.class ));
+                }
+                else if(Wikiinfo.getType().equals(dbhelper.getItems_table_name()))
+                {
+                    startActivity(new Intent(Wiki_info_Page.this, Items_Wiki.class));
+                }
+                else if(Wikiinfo.getType().equals(dbhelper.getEnemies_table_name()))
+                {
+                    startActivity(new Intent(Wiki_info_Page.this, Enemies_Wiki.class));
+                }
+
+            }
+        });
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbhelper.addbookmark(dbhelper.getBookmark_table_name(), Wikiinfo.getType());
+                startActivity(new Intent(Wiki_info_Page.this, User_Page.class));
+            }
+        });
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbhelper.DeleteWiki(Wikiinfo.getType());
+                startActivity(new Intent(Wiki_info_Page.this, User_Page.class));
+            }
+        });
+        Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Wiki_info_Page.this, Edit_Wiki.class));
+            }
+        });
 
     }
     public void fillinfo()
@@ -98,6 +160,7 @@ public class Wiki_info_Page extends AppCompatActivity {
        body.setText(Wikiinfo.getBody());
        date.setText(Wikiinfo.getDate());
        location.setText(Wikiinfo.getLocation());
+       dbhelper.addhistory(Wikiinfo.getTitle(), i + 1, Wikiinfo.getType(), 0, 0, LoginUser.getloginuser().getUserid());
     }
 
 

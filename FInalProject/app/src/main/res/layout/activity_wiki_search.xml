@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Wiki_Search">
+
+    <ImageView
+        android:id="@+id/btn_v_Search_soical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="384dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/posts_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="416dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="112dp"
+        android:background="#D9BDA5"
+        app:layout_constraintEnd_toEndOf="@+id/et_v_search_search"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/menuitem_background" />
+
+    <ImageView
+        android:id="@+id/btn_v_search_enemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/enemies_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/btn_v_search_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="336dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/items_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/btn_v_search_weapon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/weapons_icon_new_new" />
+
+    <ImageView
+        android:id="@+id/btn_v_search_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_icon_new_new" />
+
+    <ListView
+        android:id="@+id/lv_v_search_list"
+        android:layout_width="414dp"
+        android:layout_height="742dp"
+        android:layout_marginTop="172dp"
+        android:background="#D9BDA5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/et_v_search_search"
+        android:layout_width="409dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

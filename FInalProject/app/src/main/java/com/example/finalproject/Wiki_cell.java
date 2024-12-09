@@ -40,7 +40,7 @@ public class Wiki_cell extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return i;
+        return i + 1;
     }
 
     @Override

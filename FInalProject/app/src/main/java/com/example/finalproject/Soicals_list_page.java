@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.search.SearchBar;
+
 public class Soicals_list_page extends AppCompatActivity {
     ImageView Users;
     ImageView Weapoon;
@@ -35,6 +37,7 @@ public class Soicals_list_page extends AppCompatActivity {
         dbhelper = new DatabaseHelper(this);
         Post_list = findViewById(R.id.lv_v_weapon_list);
         Craete = findViewById(R.id.Btn_v_soical_create);
+        Search = findViewById(R.id.Btn_v_soical_search);
         onclicklisnter();
         fillinfo();
     }
@@ -74,6 +77,12 @@ public class Soicals_list_page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
               startActivity(new Intent(Soicals_list_page.this, Create_Post.class));
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Soicals_list_page.this, Search_Posts.class ));
             }
         });
     }

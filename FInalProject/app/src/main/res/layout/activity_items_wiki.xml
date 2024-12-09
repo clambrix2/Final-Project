@@ -65,14 +65,11 @@
 
     <ListView
         android:id="@+id/lv_v_weapon_list"
-        android:layout_width="409dp"
-        android:layout_height="803dp"
+        android:layout_width="423dp"
+        android:layout_height="845dp"
+        android:layout_marginTop="176dp"
         android:background="#D9BDA5"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

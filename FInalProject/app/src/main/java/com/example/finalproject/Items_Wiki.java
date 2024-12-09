@@ -56,13 +56,13 @@ public class Items_Wiki extends AppCompatActivity {
         iv_j_items_enemies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(Items_Wiki.this, Enemies_Wiki.class));
             }
         });
         iv_j_items_soical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(Items_Wiki.this, Soicals_list_page.class));
             }
         });
         lv_j_items_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D9BDA5"
-    tools:context=".History_cell">
+    tools:context=".History_Search_Cell">
 
     <TextView
         android:id="@+id/tv_v_hiscell_title"
@@ -44,8 +44,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="406dp"
-        android:layout_height="7dp"
+        android:layout_width="409dp"
+        android:layout_height="6dp"
         android:layout_marginTop="60dp"
         android:background="#000000"
         android:src="@android:drawable/menuitem_background"

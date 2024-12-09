@@ -13,6 +13,33 @@
         android:theme="@style/Theme.FInalProject"
         tools:targetApi="31">
         <activity
+            android:name=".History_Search_Cell"
+            android:exported="false" />
+        <activity
+            android:name=".Search_History"
+            android:exported="false" />
+        <activity
+            android:name=".Search_Bookmark_cell"
+            android:exported="false" />
+        <activity
+            android:name=".Search_Bookmark"
+            android:exported="false" />
+        <activity
+            android:name=".Post_Search_cell"
+            android:exported="false" />
+        <activity
+            android:name=".Search_Posts"
+            android:exported="false" />
+        <activity
+            android:name=".Wiki_search_cell"
+            android:exported="false" />
+        <activity
+            android:name=".Wiki_Search"
+            android:exported="false" />
+        <activity
+            android:name=".Edit_Wiki"
+            android:exported="false" />
+        <activity
             android:name=".Create_Comments"
             android:exported="false" />
         <activity

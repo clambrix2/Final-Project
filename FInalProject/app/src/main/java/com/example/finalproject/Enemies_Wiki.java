@@ -59,7 +59,7 @@ public class Enemies_Wiki extends AppCompatActivity {
         Soical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(Enemies_Wiki.this, Soicals_list_page.class));
             }
         });
         enemies_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

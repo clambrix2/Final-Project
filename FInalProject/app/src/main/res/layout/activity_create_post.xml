@@ -40,7 +40,7 @@
         android:layout_marginBottom="92dp"
         android:ems="10"
         android:hint="Body"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:singleLine="false"
         android:textAlignment="textStart"
         android:textSize="16sp"

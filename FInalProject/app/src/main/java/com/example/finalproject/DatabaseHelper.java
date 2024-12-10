@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String enemies_comments_table_name = "Ecomments";
     public DatabaseHelper(Context c)
     {
-        super(c, database_name, null, 24);
+        super(c, database_name, null, 28);
     }
 
     @Override
@@ -394,7 +394,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             {
                 Log.d("Getting", "The Comment");
                 cursor.move(i);
-                Comment c = new Comment(cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(0));
+                //Username, Body, Likes, Dislike, Postid, Usersid
+                Comment c = new Comment(cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), "Posts", cursor.getInt(6), cursor.getInt(0));
                 db.close();
                 return c;
             }

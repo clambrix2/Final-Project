@@ -69,11 +69,7 @@ public class Wiki_search_cell extends BaseAdapter {
             Title.setText(Wikiinfo.getTitle());
             Location.setText(Wikiinfo.getLocation());
             Date.setText(Wikiinfo.getDate());
-            Id.setText(Wikiinfo.getId());
-            Log.d("Count", "Count");
-            id = Wikiinfo.getId();
-            Type = Wikiinfo.getType();
-
+         
         }
         Log.d("Is it null?", Wikiinfo.getTitle() + "");
 

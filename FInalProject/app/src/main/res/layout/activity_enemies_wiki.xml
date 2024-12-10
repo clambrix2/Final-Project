@@ -65,14 +65,34 @@
 
     <ListView
         android:id="@+id/lv_v_weapon_list"
-        android:layout_width="409dp"
-        android:layout_height="803dp"
+        android:layout_width="424dp"
+        android:layout_height="626dp"
         android:background="#D9BDA5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993" />
+        app:layout_constraintVertical_bias="0.422" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="417dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="736dp"
+        android:background="#D9BDA5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/menuitem_background" />
+
+    <ImageView
+        android:id="@+id/btn_v_s_search"
+        android:layout_width="137dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="736dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

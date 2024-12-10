@@ -13,7 +13,6 @@
         android:layout_width="411dp"
         android:layout_height="91dp"
         android:singleLine="false"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -75,7 +75,7 @@
         android:id="@+id/tv_v_login_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="270dp"
+        android:layout_marginBottom="288dp"
         android:text="Error Username or Password is incorrect"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -19,6 +19,7 @@ public class Enemies_Wiki extends AppCompatActivity {
     ImageView Weapons;
     ImageView Items;
     ImageView Soical;
+    ImageView Search;
     ListView enemies_list;
     DatabaseHelper dbhelper;
     Wiki_cell adapter;
@@ -32,6 +33,7 @@ public class Enemies_Wiki extends AppCompatActivity {
         Items = findViewById(R.id.iv_v_weapons_items);
         Soical = findViewById(R.id.iv_v_weapons_social);
         enemies_list = findViewById(R.id.lv_v_weapon_list);
+        Search = findViewById(R.id.btn_v_s_search);
         dbhelper = new DatabaseHelper(this);
         onclicklinster();
         fillinfo();
@@ -66,6 +68,12 @@ public class Enemies_Wiki extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 startActivity(new Intent(Enemies_Wiki.this, Wiki_info_Page.class).putExtra("Id", i));
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Enemies_Wiki.this, Wiki_Search.class));
             }
         });
     }

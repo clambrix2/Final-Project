@@ -94,6 +94,12 @@ public class Comments_list_page extends AppCompatActivity {
                 startActivity(pass);
             }
         });
+        Goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Comments_list_page.this, Soical_Page_Info.class));
+            }
+        });
     }
 
 

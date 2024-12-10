@@ -19,6 +19,7 @@ public class Items_Wiki extends AppCompatActivity {
     ImageView iv_j_items_enemies;
     ImageView iv_j_items_soical;
     ImageView iv_j_items_weapons;
+    ImageView Search;
     ListView lv_j_items_list;
     Wiki_cell adapter;
     DatabaseHelper dbhelper;
@@ -33,6 +34,7 @@ public class Items_Wiki extends AppCompatActivity {
         iv_j_items_soical = findViewById(R.id.iv_v_weapons_social);
         iv_j_items_weapons = findViewById(R.id.iv_v_weapons_weapon);
         lv_j_items_list = findViewById(R.id.lv_v_weapon_list);
+        Search = findViewById(R.id.btn_s_search);
         dbhelper = new DatabaseHelper(this);
         onclicklinster();
         fillinfo();
@@ -69,6 +71,12 @@ public class Items_Wiki extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 startActivity(new Intent(Items_Wiki.this, Wiki_info_Page.class).putExtra("Id", i));
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Items_Wiki.this, Wiki_Search.class));
             }
         });
     }
